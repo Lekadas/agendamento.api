@@ -4,7 +4,8 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"API de agendamento está no ar!"}
+    return {"API de agendamento está no ar"}
+
 
 from .database import engine
 from . import models
@@ -17,8 +18,6 @@ from . import models, schemas, crud
 from .database import SessionLocal, engine
 
 models.Base.metadata.create_all(bind=engine)
-
-app = FastAPI()
 
 # Dependência para obter uma sessão de banco
 def get_db():
